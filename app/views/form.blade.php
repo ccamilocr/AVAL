@@ -3,7 +3,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Monitoreo a Desarrollo Alternativo UNODC</title>
+  <title>AVAL</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
 
@@ -99,16 +99,12 @@
       </div>
   </div>
   </div>
-</div>
-
-<!--  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
--->
-  
+</div>  
 
 <script src="assets/js/login.js"></script>
 <script>
   $(document).ready(function() {
-    $( "#mensajeestatus" ).fadeOut(5000);
+    
   });
 </script>
 </body>
