@@ -6,6 +6,16 @@ class TablaController extends BaseController {
 	{
 		$this->beforeFilter('auth');  //bloqueo de acceso
 	}
+	public function Datos()
+	{    
+		
+		$datosforms = DB::table('formulario')
+		->get();
+		$bancos = DB::table('fromubanco')
+		->get();
+		$datosarray = array($datosforms, $bancos);
+		return  View::make('tabla', array('datosarray' => $datosarray));
+	}
 	   		
 
 }

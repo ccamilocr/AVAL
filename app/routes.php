@@ -29,10 +29,12 @@ Route::get('logout',function()
 Route::controller('formulario','FormularioController');
 
 
-Route::get('tabla',array('before'=>'auth',function()
+/*Route::get('tabla',array('before'=>'auth',function()
 {
 	return View::make('tabla');
-}));
+}));*/
+
+Route::get('tabla', array('before' => 'auth', 'uses' => 'TablaController@Datos'));
 
 /*
 Route::get('registrar', function()
