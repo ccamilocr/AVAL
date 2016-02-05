@@ -10,11 +10,14 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+Route::get('/','FormularioController@InicioForm');
+/*
+//ruta del inicio pero entra directo sin array 
 Route::get('/', function()
 {
 	return View::make('form');
 });
-
+*/
 Route::post('login','UserLogin@user');
 
 Route::get('logout',function()

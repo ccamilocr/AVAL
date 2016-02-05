@@ -45,6 +45,8 @@
       <i class="bg-success"></i>El formulario fue cargado con éxito</div>
       <div class="col-sm-1"></div>
     @endif
+  </div>
+  <div class="row">
     <div class="col-xs-9">
       <h3 class="text-muted">FORMULARIO DE ENCUESTA</h3>
     </div>
@@ -80,18 +82,15 @@
             <label for="formulario" class="control-label">Departamento:</label>
             <select id="selectdepto" class="form-control" name="selectdepto" required="true">
               <option value="" selected="selected">Seleccione</option>
-                
-              <option value="variable">valor</option>
-
-            </select>
+              @foreach($arrayiniciales[0] as $depto)
+              <option value="{{$depto->COD_DEPTO}}">{{$depto->DEPTO}}</option> 
+              @endforeach
+            </select>              
           </div>
           <div class="form-group">
             <label for="formulario" class="control-label">Municipio:</label>
             <select id="selectmpio" class="form-control" name="selectmpio" required="true">
               <option value="" selected="selected">Seleccione</option>
-                
-              <option value="variable">valor</option> 
-
             </select>
           </div>
           <div class="form-group">
@@ -103,19 +102,12 @@
             <input  id = "prestamo" name="prestamo" class="form-control" type="number" required="true" placeholder="sin decimales"></input>
           </div>
           <div class="form-group">
-            <label for="formulario" class="control-label">Banco donde quiere el credito:</label><br>
+            <label for="formulario" class="control-label">Banco donde quiere el credito:</label><br>            
+            @foreach($arrayiniciales[1] as $banco)
             <label class="checkbox-inline">
-              <input type="checkbox" id="banco" name="banco[]" value="1"> 1
+              <input id="selectmpios" type="checkbox" name="banco[]" value="{{$banco->id_banco}}">{{$banco->nombre_banco}}<br>
             </label>
-            <label class="checkbox-inline">
-              <input type="checkbox" id="banco" name="banco[]" value="2"> 2
-            </label>
-            <label class="checkbox-inline">
-              <input type="checkbox" id="banco" name="banco[]" value="3"> 3
-            </label>
-            <label class="checkbox-inline">
-              <input type="checkbox" id="banco" name="banco[]" value="4"> 4
-            </label>
+            @endforeach             
           </div>
           <div class="form-group">
             <label for="formulario" class="control-label">habeas data:</label><br>
@@ -190,8 +182,25 @@
 <script src="assets/js/login.js"></script>
 <script>
   $(document).ready(function() {
-    $( "#mensajeestatus" ).fadeOut(5000);
-  });
+    $( "#mensajeestatus" ).fadeOut(2000);
+
+    $("#selectdepto").change(function(){
+            
+            $.ajax({url:"formulario/submpio",type:"POST",data:{depto:$('#selectdepto').val()},dataType:'json',
+              success:function(data){
+                  //console.log(data);
+                  $("#selectmpio").empty();                                
+                  $("#selectmpio").append('<option value="" selected="selected">Seleccione</option>');
+                    [].forEach.call(data,function(datos){                      
+                      $('#selectmpio').append('<option value='+datos.CODANE+'> '+datos.MUNICIPIO+'</option>');
+                    });                  
+                     
+              },
+              error:function(){alert('error');}
+            });//Termina Ajax
+    });//termina funcion change
+
+  });//termina document ready
 </script>
 </body>
 </html>
