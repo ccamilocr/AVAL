@@ -22,6 +22,8 @@ Route::get('logout',function()
 		Auth::logout();
 		return Redirect::to('/');
 	});
+//Rutas para activar los controladores
+Route::controller('formulario','FormularioController');
 
 
 Route::get('tabla',array('before'=>'auth',function()
@@ -29,9 +31,9 @@ Route::get('tabla',array('before'=>'auth',function()
 	return View::make('tabla');
 }));
 
+/*
 Route::get('registrar', function()
 {
-
 	$user = new User;
     $user->username = "prueba";
     $user->password = Hash::make('1234');
@@ -39,8 +41,6 @@ Route::get('registrar', function()
 	$user->save();
 	return "El usuario fue agregado.";
 });
-
-
 Route::get('creartabla', function()
 {
 	Schema::create('users', function($tabla)
@@ -52,3 +52,4 @@ Route::get('creartabla', function()
 		$tabla->timestamps();
 	});
 });
+*/
