@@ -36,6 +36,8 @@ Route::controller('formulario','FormularioController');
 
 Route::get('tabla', array('before' => 'auth', 'uses' => 'TablaController@Datos'));
 
+Route::get('excelcar', array('before' => 'auth', 'uses' => 'TablaController@Excelcarini'));
+
 /*
 Route::get('registrar', function()
 {
