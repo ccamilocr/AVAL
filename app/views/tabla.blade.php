@@ -14,7 +14,7 @@
   <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-datepicker.css">
 
   <!-- librerias JavaScript que se utilizan en la pagina -->
-<script src="assets/js/jquery-1.11.3.min.js"></script>
+  <script src="assets/js/jquery-1.11.3.min.js"></script>
   <script src="assets/js/bootstrap.min.js"></script>
   <script src="assets/js/jquery.dataTables.min.js"></script>
   <script src="assets/js/dataTables.bootstrap.min.js"></script>
@@ -39,16 +39,15 @@
 
   <div class="row">
     <!--Listado -->
-      </br>
-      <div class="col-sm-1"></div>
-      <div class="col-xs-12 col-sm-10" >
+    </br>
+    <div class="col-sm-1"></div>
+    <div class="col-xs-12 col-sm-10" >
         <table id="example" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
           <thead>  
             <tr class="well text-primary ">
               <th class="text-center">Nombre</th>
               <th class="text-center">Cedula</th>
-              <th class="text-center">Correo</th>
-              <th class="text-center">Radicado</th>
+              <th class="text-center">Correo</th>              
               <th class="text-center">Telefono fijo</th>
               <th class="text-center">Celular</th>
               <th class="text-center">Departamento</th>              
@@ -57,16 +56,46 @@
               <th class="text-center">Prestamo</th>
               <th class="text-center">habeas data</th>
               <th class="text-center">llamar</th>
+              
+
             </tr>
           </thead>
           <tbody>
+
+          @foreach($datosarray[0] as $formulario)
+              <tr id="{{$formulario->id_formulario}}"> 
+                <td>{{$formulario->nombre}}</td>
+                <td>{{$formulario->cedula}}</td>
+                <td>{{$formulario->correo}}</td>
+                <td>{{$formulario->telfijo}}</td>
+                <td>{{$formulario->celular}}</td>
+                <td>{{$formulario->departamento}}</td>
+                <td>{{$formulario->municipio}}</td>
+                <td>{{$formulario->ingresos}}</td>
+                <td>{{$formulario->prestamo}}</td>
+                <td>{{$formulario->habeasdata}}</td>
+                <td>{{$formulario->llamar}}</td>
+                
+              </tr>
+             
+          @endforeach
             
           </tbody>
         </table>
-      </form>
+     
       </div>
       <div class="col-sm-1"></div>
       </br>
     </div>
-</div>
-<!--Fin del contenedor-->
+  </div>
+
+  <script>
+    $(document).ready(function() {
+      var table = $('#example').DataTable();
+
+    });//termina document ready
+  </script>
+</body>
+</html>
+
+

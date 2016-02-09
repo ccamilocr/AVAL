@@ -5,9 +5,12 @@ class FormularioController extends BaseController {
 	public function InicioForm()
 	{
 		//return 'Aqui podemos listar a los usuarios de la Base de Datos:';
-		$deptos = DB::select('SELECT COD_DEPTO, DEPTO FROM departamentos');
-		$bancos = DB::select('SELECT id_banco, nombre_banco FROM bancos');
+		$deptos = DB::table('departamentos')
+		->get();
 
+		$bancos = DB::table('bancos')
+		->get();
+		
 		$arrayiniciales=array($deptos, $bancos);
 		return View::make('form', array('arrayiniciales' => $arrayiniciales));
 	}

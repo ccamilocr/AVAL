@@ -15,7 +15,7 @@
       }
   </style>
   <!-- librerias JavaScript que se utilizan en la pagina -->
-  <script src="assets/js/jquery-1.11.2.js"></script>
+  <script src="assets/js/jquery-1.11.3.min.js"></script>
   <script src="assets/js/bootstrap.js"></script>
   <script src="assets/js/jquery-ui.js"></script>
   
