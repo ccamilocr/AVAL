@@ -11,13 +11,13 @@
 |
 */
 Route::get('/','FormularioController@InicioForm');
-/*
+
 //ruta del inicio pero entra directo sin array 
-Route::get('/', function()
+Route::get('acceso', function()
 {
-	return View::make('form');
+	return View::make('inisesion');
 });
-*/
+
 Route::post('login','UserLogin@user');
 
 Route::get('logout',function()

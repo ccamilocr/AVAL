@@ -29,14 +29,23 @@
 <div class="container">
   <br>
   <div class="row">
-    <div class="col-xs-1"><a href='excelcar'><img class="img-responsive" src='assets/img/excel.png'></img></a></div>
-    <div class="col-xs-8">
-      <h3 class="text-muted">TABLA FINAL</h3>
+    <div class="col-sm-1"></div>
+    <div class="col-xs-12 col-sm-10" >
+      <div class="col-xs-4">
+        <h3 class="text-muted">TABLA FINAL</h3>
+      </div>
+      <div class="col-xs-4">
+        <a href='excelcar'><img class="img-responsive" src='assets/img/excel.png'>Exportar Excel</img></a>
+      </div>
+      <div class="col-xs-4 text-right">
+        <a href='logout'><button  type="button" class="btn btn-primary">Cerrar sesión</button></a>
+      </div>
+
     </div>
-    <div class="col-xs-3 text-right">
-      <a href='logout'><button  type="button" class="btn btn-primary">Cerrar sesión</button></a>
-    </div>
+    <div class="col-sm-1"></div>
   </div>
+
+    
 
   <div class="row">
     <!--Listado -->
@@ -55,8 +64,12 @@
               <th class="text-center">Municipio</th>
               <th class="text-center">Ingresos</th>
               <th class="text-center">Prestamo</th>
-              <th class="text-center">habeas data</th>
-              <th class="text-center">llamar</th>
+              <th class="text-center">Banco de Bogotá</th>
+              <th class="text-center">Banco de Occidente</th>
+              <th class="text-center">Banco Popular</th>
+              <th class="text-center">Banco AV Villas</th>
+              <th class="text-center">Habeas data</th>
+              <th class="text-center">Llamar</th>
               
 
             </tr>
@@ -74,6 +87,10 @@
                 <td>{{$formulario->municipio}}</td>
                 <td>{{$formulario->ingresos}}</td>
                 <td>{{$formulario->prestamo}}</td>
+                <td>{{$formulario->BancoBogota}}</td>
+                <td>{{$formulario->BancoOccidente}}</td>
+                <td>{{$formulario->BancoPopular}}</td>
+                <td>{{$formulario->BancoAVVillas}}</td>
                 <td>{{$formulario->habeasdata}}</td>
                 <td>{{$formulario->llamar}}</td>
                 
@@ -87,9 +104,19 @@
       </div>
       <div class="col-sm-1"></div>
       </br>
+
     </div>
   </div>
-
+  <div class="row">
+    <div class="col-sm-1"></div>
+    <div class="col-xs-8">
+     <footer class="footer text-right">
+        <p>&copy; 2016 symetrix soft.</p>
+      </footer>
+    </div>
+    <div class="col-sm-1"></div>
+  </div>
+</div>
   <script>
     $(document).ready(function() {
       var table = $('#example').DataTable();

@@ -46,6 +46,12 @@ class FormularioController extends BaseController {
 		    	)
 			);
 		*/
+
+		
+		$a= str_replace(',','',Input::get('ingresos'));
+		$b= str_replace(',','',Input::get('prestamo'));
+		
+
 		$idmaximo =  DB::table('Formulario')->max('id_formulario');
 
 		$formulario = new Formulario;
@@ -56,8 +62,8 @@ class FormularioController extends BaseController {
 	    $formulario->celular =  Input::get('celular');
 	    $formulario->departamento =  Input::get('selectdepto');
 	    $formulario->municipio =  Input::get('selectmpio');
-	    $formulario->ingresos =  Input::get('ingresos');
-	    $formulario->prestamo =  Input::get('prestamo');
+	    $formulario->ingresos =  $a;
+	    $formulario->prestamo =  $b;
 	    $formulario->habeasdata =  Input::get('habeas');
 	    $formulario->llamar =  Input::get('llamada');
 		// guardamos
